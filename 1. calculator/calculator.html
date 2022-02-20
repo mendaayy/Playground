@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<main>
+		<header>
+			<div class="title">
+				<h2>CSS IS FUN</h2>
+			</div>
+		</header>
+
+		<div class="displayBox">
+			<h1 id="display"></h1>
+		</div>
+
+      <table class="calculator">
+        <thead>
+          <tr>
+            <th onclick="disp.innerHTML = ''"><div class="data">MC</div></th>
+            <th><div class="data">M+</div></th>
+            <th><div class="data">M-</div></th>
+            <th><div class="data">MR</div></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td onclick="display('7')"><div class="data">7</div></td>
+            <td onclick="display('8')"><div class="data">8</div></td>
+            <td onclick="display('9')"><div class="data">9</div></td>
+            <th onclick="display('-')"><div class="data">-</div></th>
+          </tr>
+          <tr>
+            <td onclick="display('4')"><div class="data">4</div></td>
+            <td onclick="display('5')"><div class="data">5</div></td>
+            <td onclick="display('6')"><div class="data">6</div></td>
+            <th onclick="display('/')"><div class="data">&divide;</div></th>
+          </tr>
+            <td onclick="display('1')"><div class="data">1</div></td>
+            <td onclick="display('2')"><div class="data">2</div></td>
+            <td onclick="display('3')"><div class="data">3</div></td>
+            <th onclick="display('*')"><div class="data">&times;</div></th>
+          </tr>
+          <tr>
+            <td onclick="display('0')"><div class="data">0</div></td>
+            <td onclick="display('.')"><div class="data" >.</div></td>
+            <th onclick="result()"><div class="data">=</div></th>
+            <th onclick="display('+')"><div class="data">+</div></th>
+          </tr>
+        </tbody>
+      </table>
+	</main>
+
+	<script src="javascript.js"></script>
+</body>
+</html>

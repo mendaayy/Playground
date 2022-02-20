@@ -1,0 +1,68 @@
+* {
+	background-color: #a4e1ee;
+}
+
+.top {
+	position: relative;
+	background-image: linear-gradient(to top, lightgrey, white);
+	height: 300px;
+	width: 32%;
+	left: 32%;
+	top: 100px;
+	border-radius: 25px;
+	padding: 15px 25px;
+}
+
+.lens {
+	position: absolute;
+	background-color: #372f2f;
+	border-radius: 100px;
+	padding: 100px;
+	left: 32%;
+	box-shadow: 20px 55px 50px 23px rgba(0,0,0,0.42);
+}
+
+.grid-container {
+	position: absolute;
+	background-color: #e4e4e4;
+	border-radius: 10px;
+	padding: 4px;
+	height: 150px;
+	width: 80px;
+	box-shadow: -4px 5px 5px 1px rgba(0,0,0,0.2);
+}
+
+.grid-background {
+	background: linear-gradient(180deg, rgb(0 2 36 / 5%) 0%, rgb(0 1 0 / 74%) 50%, rgb(155 154 154 / 34%) 100%);
+	padding: 72px 6px;
+}
+
+.grid-horizontal {
+	background-image: white;
+	background-size: 10px 10px;
+}
+
+.red-container {
+	position: absolute;
+	background-color: lightgrey;
+	border-radius: 30px;
+	padding: 4px;
+	bottom: 40px;
+	box-shadow: 2px 4px 5px 1px rgba(0,0,0,0.2);
+}
+
+.red {
+	background-image: linear-gradient(to bottom, #ad0a0a, #ff4545); 
+	border-radius: 25px;
+	padding: 25px;
+	border: 0.5px solid #323232;
+}
+
+.bottom {
+	position: relative;
+	background-image: linear-gradient(to bottom, #323232, #767474);
+	height: 175px;
+	width: 40%;
+	left: 29.5%;
+	top: 75px;
+	border-radius: 15px;

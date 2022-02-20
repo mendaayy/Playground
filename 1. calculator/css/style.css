@@ -1,0 +1,94 @@
+main {
+	background-color: lightgrey;
+	width: 25%;
+	height: 95%;
+	left: 37%;
+	border-radius: 5px;
+  	position: relative;
+  	overflow: hidden;
+  	margin-top: 30px;
+  	font-family: monospace;
+}
+
+header {
+	margin-top: 15px;
+	background-image: linear-gradient(#6d6c6c 5px, transparent 1px);
+	padding: 10px;
+	background-size: 10px 15px;
+}
+
+header .title {
+	background-color: #7da0ad;
+	text-align: center;
+	padding: 1px 7px;
+	margin-left: 20px;
+	width: 25%;
+	font-size: 10px;
+}
+
+.displayBox {
+	position: relative;
+	background-color: black;
+	width: 70%;
+	padding: 70px 35px;
+  	margin: 30px auto 0 auto;
+}
+
+#display {
+	position: absolute;
+	color: white;
+	right: 10px;
+	bottom: 2px;
+	font-size: 25px;
+}
+
+.calculator {
+	margin: 30px auto 40px auto;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+td, th {
+	width: 0.75em;
+	height: 1em;
+	text-align: center;
+	border: 2px solid black;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+thead th {
+	background-image: linear-gradient(to right, #a75d1e, #ff8a25d4);
+	padding: 5px 10px;
+}
+
+thead .data {
+	background-color: #ff924be6;
+	border-radius: 20px;
+	padding: 20px 20px;
+}
+
+tbody th {
+	background-image: linear-gradient(to right, #9d9d9d, white);
+	color: black;
+	padding: 5px 10px;
+}
+
+tbody th .data {
+	background-color: #ddd9d6e6;
+	border-radius: 20px;
+	padding: 20px 20px;
+}
+
+td {
+	background-image: linear-gradient(to right, #323232, #767474);
+	padding: 0px 10px;
+}
+
+.data {
+	background-color: #747373e6;
+	border-radius: 20px;
+	padding: 20px 20px;
+}
+
