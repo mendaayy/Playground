@@ -1,0 +1,83 @@
+<!-- js: red button selfie coming out via polaroid -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>polaroid</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="split">
+		<div class="web">
+			<video id="webcam" autoplay playsinline width=320 height=240></video>
+		</div>
+
+		<div class="polaroid">
+		    <div class="top">
+				<div class="lens">
+					<div class="lens-black">
+						<div class="white-lines">
+							<div class="black-lines">
+								<div class="lens-small">
+									<div class="flash"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid-container">
+					<div class="grid-background"></div>
+					<div class="grid-horizontal"></div>
+					<div class="grid-vertical"></div>
+					<div class="grid-box"></div>
+				</div>
+
+				<div class="red-container">
+					<div class="red" onclick="capture()" id="capture"></div>
+				</div>
+
+				<div class="circle-white"></div>
+				<div class="circle-black-out">
+					<div class="circle-black-in"></div>
+				</div>
+
+				<div class="circle-black2-out">
+					<div class="circle-black2-in"></div>
+				</div>
+
+				<div class="square-container">
+					<div class="square-black">
+						<div class="square-white"></div>
+					</div>
+				</div>
+
+				<div class="bar">
+					<div class="circle"></div>
+				</div>
+			</div>
+
+			<div class="bottom">
+				<div class="bottom-rectangle"></div>
+				<h1 class="text">Polaroid</h1>
+				<div class="rainbow">
+					<div class="grid"></div>
+				</div>
+				<div class="bar2-container">
+					<div class="bar2">
+						<div class="circle2"></div>
+					</div>
+				</div>
+
+				<div class="bar-white"></div>
+				<div class="bar2-white"></div>
+			</div>
+
+			<hr class="hr">
+			<canvas id="picture" width=300 height=300></canvas>
+		</div>
+	</div>
+	
+    <script src="javascript.js"></script>
+</body>
+</html>

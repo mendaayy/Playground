@@ -1,0 +1,122 @@
+body {
+  background-color: #FFCDCD;
+}
+
+.clock {
+  background: #FFFBFB;
+  position: absolute;
+  text-align: center;
+  height: 400px;
+  width: 400px;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 18px 20px 24px 10px rgba(255,152,152,0.5);
+  border: 1px solid rgba(255,116,116,0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.inner {
+  background: #FFFBFB;
+  height: 350px;
+  width: 350px;
+  border-radius: 50%;
+  box-shadow: inset 5px 5px 18px 2px rgba(255,116,116,0.4);
+  border: 1px solid rgba(255,116,116,0.4);
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.number {
+  font-family: Arial;
+  font-size: 30px;
+  position: absolute;
+  color: rgb(179, 0, 0);
+}
+
+.number.top{
+  left: 0;
+  right: 0;
+  top: 40px;
+}
+
+.number.right{
+  right: 45px;
+  top: 190px;
+}
+
+.number.bottom{
+  left: 0;
+  right: 0;
+  bottom: 40px;
+}
+
+.number.left{
+  left: 45px;
+  top: 190px;
+}
+
+.circle {
+  position: absolute;
+  background: rgb(255, 102, 102);
+  border-radius: 50%;
+  border: 1px solid rgba(255,152,152);
+  margin: auto;
+  height: 40px;
+  width: 40px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.hour {
+  position: absolute;
+  background: rgb(255, 102, 102);
+  border-radius: 10px;
+  border: 1px solid rgba(255,152,152);
+  height: 100px;
+  width: 20px;
+  transform-origin: 50% 100%;
+  left: 0;
+  right: 0;
+  top: 100px;
+  margin: auto;
+  animation: spin 43200s infinite linear;
+}
+
+.minute {
+  position: absolute;
+  transform: rotate(122deg);
+  background: rgb(255, 102, 102);
+  border-radius: 10px;
+  border: 1px solid rgba(255,152,152);
+  height: 150px;
+  width: 15px;
+  transform-origin: 50% 100%;
+  left: 49.5%;
+  top: 12%;
+  animation: spin 3600s infinite linear;
+}
+
+.second {
+  position: absolute;
+  background: black;
+  border-radius: 10px;
+  height: 150px;
+  width: 5px;
+  transform-origin: 50% 100%;
+  left: 49.5%;
+  top: 12%;
+  animation: spin 60s infinite linear;
+  z-index: 3;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
