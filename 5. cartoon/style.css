@@ -1,0 +1,61 @@
+* {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#page1 {
+  position: relative;
+}
+
+.content{
+  position: absolute;
+  top: 40%;
+  left: 10%;
+}
+
+#watch {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #9b644d;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#page1 img {
+  width: 100%;
+  margin-top: -6%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#car2 {
+  width: 19%;
+  margin-top: 620px;
+  right: 18;
+  position: absolute;
+}
+
+#page2 {
+  background: url('background.jpg');
+  background-size: 1300px 800px;
+  height: 743px;
+  animation: move 5s linear infinite;
+  display: none;
+}
+
+@keyframes move {
+  0% { 
+    background-position: 100% 0px; 
+  }
+  100% { 
+    background-position: -1000% 0px; 
+  }
+}
+
+
+
+
+
