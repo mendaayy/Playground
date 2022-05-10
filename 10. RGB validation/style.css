@@ -1,0 +1,28 @@
+* {
+	font-family: monospace;
+	text-align: center;
+}
+
+#color {
+	text-align: left;
+	padding: 10px 25px;
+	border-radius: 25px;
+}
+
+.wrapper {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#button {
+	padding: 10px 15px;
+	border-radius: 25px;
+	background-color: darkgrey;
+	color: white;
+	font-weight: bold;
+}
+
+#button:hover {
+	background-color: lightgrey;
+	color: black;
+}
