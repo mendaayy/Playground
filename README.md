@@ -1,8 +1,3 @@
-# Challenges
+# Playground
 
-Coding challenges 
-
-Name: Mendy Liang
-Studentnumber: 4417399
-I-number: i488547
-Class: M2-CB01
+Small assignments to train html and css
