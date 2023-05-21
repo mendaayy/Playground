@@ -1,0 +1,35 @@
+table {
+	border-collapse: collapse;
+}
+
+td, th, input{
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	border: 1px solid lightgray;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+input:valid {
+	color: blue;
+}
+
+input:invalid {
+	color: red;
+}
+
+td:not(:empty) {
+	border: 1.5px solid black;
+}
+
+.tdFilled {
+	background: black;
+}
+
+button {
+	margin: 25px 50px;
+}

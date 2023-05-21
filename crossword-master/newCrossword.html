@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crossword generator</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<button onclick="generator()">Generate crossword</button>
+
+	<table class="crossword">
+		<thead></thead>
+		<tbody></tbody>
+	</table>
+</body>
+</html>
+	
+<script>
+	const crosswordCols = ["","1","2","3","4","5","6","7","8","9","10","11"];
+	const crosswordRows= ["A","B","C","D","E","F","G","J","K","L","M","N"];
+
+	const crosswordCells=[
+	  ["" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"t","" ,"" ],
+	  ["" ,"" ,"f","" ,"" ,"" ,"" ,"" ,"h","" ,"" ],
+	  ["" ,"j","a","v","a","s","c","r","i","p","t"],
+	  ["" ,"" ,"l","" ,"" ,"w","" ,"" ,"s","" ,"" ],
+	  ["c","a","s","e","" ,"i","" ,"" ,"" ,"" ,"" ],
+	  ["o","" ,"e","" ,"s","t","r","i","n","g","" ],
+	  ["n","" ,"" ,"" ,"" ,"c","" ,"" ,"u","" ,"" ],
+	  ["t","", "" ,"" ,"" ,"h","" ,"" ,"m","" ,"" ],
+	  ["i","" ,"" ,"" ,"f","" ,"n","" ,"b","" ,"" ],
+	  ["n","" ,"" ,"d","o","c","u","m","e","n","t"],
+	  ["u","" ,"" ,"" ,"r","" ,"l","" ,"r","" ,"" ],
+	  ["e","" ,"" ,"" ,"" ,"" ,"l","" ,"" ,"" ,"" ],
+	];
+
+	function generator(){
+
+		let thead=document.querySelector('table > thead');
+		let newTR=document.createElement('tr');
+
+		for (var col = 0; col<12; col++){
+			let newTH=document.createElement('th');
+			newTH.textContent=crosswordCols[col];
+			newTR.appendChild(newTH);
+			thead.appendChild(newTR);
+		};
+
+		let tbody=document.querySelector('table > tbody');
+
+		for (var row = 0; row<11; row++){
+			let newTR=document.createElement('tr');
+
+			let newTH=document.createElement('th');
+			newTH.textContent=crosswordRows[row];
+			newTR.appendChild(newTH);
+
+			for(let col=0; col<11; col++){
+				let newTD=document.createElement('td');
+				let input=document.createElement('input');
+				input.setAttribute("autocomplete", "off");
+				input.setAttribute("required", "");
+				input.setAttribute("maxlength", "1");
+				input.setAttribute("pattern", crosswordCells[row][col]);
+
+				if(crosswordCells[row][col] == ""){
+					let newTD=document.createElement('td');
+					newTD.textContent=crosswordCells[row][col];
+				} else {
+					newTD.appendChild(input);
+				}
+				newTR.appendChild(newTD);
+			} 
+			tbody.appendChild(newTR);
+		};
+
+		let trList=document.querySelectorAll("tr");
+		for(let row=0; row<trList.length; row++){
+			let tr=trList[row];
+			let cells=tr.querySelectorAll("td");
+			for(let col=0; col < cells.length; col++){
+			   let cell=cells[col];
+			   let input=cell.querySelector("input");
+				if(input){
+					input.dataset.row=row;
+					input.dataset.col=col;
+				};
+			}
+		};
+
+		function findInput(row,col){
+			return document.querySelector("input[data-row='"+row+"'][data-col='"+col+"']");
+		}
+
+		var editingDirection;
+
+		// Event listener for keyup
+		document.querySelector("table.crossword").addEventListener("keyup",function(event){
+			if(!event.target.matches("input")){
+				return;
+			};
+
+			if(event.target.matches("input:invalid")){
+				event.target.setSelectionRange(0,0);
+			};
+
+			let row=event.target.dataset.row|0,col=event.target.dataset.col|0;
+			let inputRight=findInput(row,col+1);
+			let inputBelow=findInput(row+1,col);
+
+			if(inputRight && !inputBelow){
+				//there is a letter on the right but nothing below 
+				editingDirection="horizontal";
+			}else
+			if(inputBelow && !inputRight){
+				//there is a letter below but nothing on the right
+				editingDirection="vertical";
+			}else
+			if(inputBelow && inputRight){
+				//there are letters both below and on the right
+				if(!editingDirection){//we don't have any prior knowledge
+					//however if we have a letter on the left but not a letter on top, we can choose vertical....(T junction)
+					//	otherwise we can choose horizontal...
+					editingDirection=findInput(row,col-1)?'vertical':'horizontal';
+				}else{
+					//stick to the editingDirection we know from the previous letter
+				}
+			}else{
+				//nothing below, nothing on the right, i.e. last letter of word(s)
+				editingDirection=undefined;//reset the editing direction to "unknown"
+			};
+			//when the current input is valid, but also when the user presses the "Tab" key...
+			//we want to automatically focus the next letter of the current word				
+			if((event.key=="Tab") || ((event.key.length==1) && event.target.matches("input:valid")) ){
+				let nextInput=undefined;
+
+				switch(editingDirection){
+					case "vertical"		: nextInput=inputBelow; break;
+					case "horizontal"	: nextInput=inputRight; break;
+					default:;// no idea, apparently the user started from a letter belonging to two words
+				};
+
+				if(!nextInput){//we can not tell where to focus next
+					//let's try any invalid cell						
+					nextInput=document.querySelector("input:invalid");						
+				};
+
+				if(nextInput){//make sure that we have a nextInput(it could be that despite all efforts we ended up with null)
+					nextInput.focus();
+				}
+			};
+		});
+	}
+
+	// Event listener for keydown 
+	document.querySelector("table.crossword").addEventListener("keydown",function(event){
+		if(event.target.tagName!="INPUT"){
+			return;
+		};
+
+		if(event.key=="Tab"){
+			event.preventDefault();
+		};
+
+		event.target.value="";
+
+		let row=event.target.dataset.row|0,col=event.target.dataset.col|0;
+		switch(event.key){
+			case "ArrowLeft" : col--;break;
+			case "ArrowRight": col++;break;
+			case "ArrowUp"	 : row--;break;
+			case "ArrowDown" : row++;break;
+			default:
+				console.log("not an arrow key:",event.key);
+				return;
+		};
+
+		let nextInput = document.querySelector("input[data-row='"+row+"'][data-col='"+col+"']");
+		let inputs = document.querySelectorAll("input");
+		var validation = true; 
+
+		for (let i = 0; i < inputs.length; i++) {
+			let input = inputs[i];
+			if (input.validity.patternMismatch){
+				validation = false; //if input is wrong
+			}
+		}
+
+		// only focus if input is correct
+		if((nextInput) && (validition == true)){
+			nextInput.focus(); 
+		} else 
+		if (!nextInput) {
+			console.log("no input found at row",row,", col",col,"(",event.key,")");
+		} 
+	});
+	
+</script>		
+				

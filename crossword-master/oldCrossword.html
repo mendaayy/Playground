@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>crossword</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<script src="oldCrossword.js"></script>
+</head>
+<body>
+	<h1>Previous step</h1>
+	<p>A table without the crossword solution</p>
+	<table class="crossword">
+		<thead>
+			<tr>
+				<th scope="col"></th>
+				<th scope="col">1</th>
+				<th scope="col">2</th>
+				<th scope="col">3</th>
+				<th scope="col">4</th>
+				<th scope="col">5</th>
+				<th scope="col">6</th>
+				<th scope="col">7</th>
+				<th scope="col">8</th>
+				<th scope="col">9</th>
+				<th scope="col">10</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><th scope="row">A</th>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="j"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="a"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="v"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="a"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="s"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="c"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="r"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="i"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="p"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="t"></td>
+			</tr>
+			<tr>
+				<th scope="row">B</th>
+				<td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="a"></td>
+				<td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="o"></td>
+				<td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="r"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">C</th>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="f"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="o"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="r"></td>
+				<td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="n"></td>
+				<td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="o"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">D</th><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="b"></td>
+				<td></td><td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="s"></td>
+				<td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="t"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">E</th>
+				<td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="j"></td>
+				<td class="tdFilled"><br/></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="l"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="e"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="t"></td>
+				<td></td>
+				<td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="o"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">F</th><td></td><td><input autocomplete="off"  required="" maxlength="1" pattern="e"></td>
+				<td></td><td></td><td></td><td></td><td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="t"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">G</th><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="c"></td>
+				<td></td><td></td><td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="t"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="r"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="y"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">H</th><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="t"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="r"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="u"></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="e"></td>
+				<td></td><td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="p"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th scope="row">I</th>
+				<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+				<td><input autocomplete="off"  required="" maxlength="1" pattern="e"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+
+<script>
+  	// Setup the data-row, data-col, and ID for the inputs 
+	let trList=document.querySelectorAll("tbody > tr");
+	for(let row=0; row<trList.length; row++){
+		let tr=trList[row];
+		let cells=tr.querySelectorAll("td");
+		for(let col=0; col < cells.length; col++){
+		   let cell=cells[col];
+		   let input=cell.querySelector("input");
+			if(input){
+				input.dataset.row=row;
+				input.dataset.col=col;
+			};
+		}
+	};
+
+	function findInput(row,col){
+		return document.querySelector("input[data-row='"+row+"'][data-col='"+col+"']");
+	}
+
+	var editingDirection;
+
+	// Event listener for keyup
+	document.querySelector("table.crossword").addEventListener("keyup",function(event){
+		if(!event.target.matches("input")){
+			return;
+		};
+
+		if(event.target.matches("input:invalid")){
+			event.target.setSelectionRange(0,0);
+		};
+
+		let row=event.target.dataset.row|0,col=event.target.dataset.col|0;
+		let inputRight=findInput(row,col+1);
+		let inputBelow=findInput(row+1,col);
+
+		if(inputRight && !inputBelow){
+			//there is a letter on the right but nothing below 
+			editingDirection="horizontal";
+		}else
+		if(inputBelow && !inputRight){
+			//there is a letter below but nothing on the right
+			editingDirection="vertical";
+		}else
+		if(inputBelow && inputRight){
+			//there are letters both below and on the right
+			if(!editingDirection){//we don't have any prior knowledge
+				//however if we have a letter on the left but not a letter on top, we can choose vertical....(T junction)
+				//	otherwise we can choose horizontal...
+				editingDirection=findInput(row,col-1)?'vertical':'horizontal';
+			}else{
+				//stick to the editingDirection we know from the previous letter
+			}
+		}else{
+			//nothing below, nothing on the right, i.e. last letter of word(s)
+			editingDirection=undefined;//reset the editing direction to "unknown"
+		};
+		//when the current input is valid, but also when the user presses the "Tab" key...
+		//we want to automatically focus the next letter of the current word				
+		if((event.key=="Tab") || ((event.key.length==1) && event.target.matches("input:valid")) ){
+			let nextInput=undefined;
+
+			switch(editingDirection){
+				case "vertical"		: nextInput=inputBelow; break;
+				case "horizontal"	: nextInput=inputRight; break;
+				default:;// no idea, apparently the user started from a letter belonging to two words
+			};
+
+			if(!nextInput){//we can not tell where to focus next
+				//let's try any invalid cell						
+				nextInput=document.querySelector("input:invalid");						
+			};
+
+			if(nextInput){//make sure that we have a nextInput(it could be that despite all efforts we ended up with null)
+				nextInput.focus();
+			}
+		};
+	});
+
+	// Event listener for keydown 
+	document.querySelector("table.crossword").addEventListener("keydown",function(event){
+		if(event.target.tagName!="INPUT"){
+			return;
+		};
+
+		if(event.key=="Tab"){
+			event.preventDefault();
+		};
+
+		event.target.value="";
+
+		let row=event.target.dataset.row|0,col=event.target.dataset.col|0;
+		switch(event.key){
+			case "ArrowLeft" : col--;break;
+			case "ArrowRight": col++;break;
+			case "ArrowUp"	 : row--;break;
+			case "ArrowDown" : row++;break;
+			default:
+				console.log("not an arrow key:",event.key);
+				return;
+		};
+
+		let nextInput = document.querySelector("input[data-row='"+row+"'][data-col='"+col+"']");
+		let inputs = document.querySelectorAll("input");
+		var validation = true; 
+
+		for (let i = 0; i < inputs.length; i++) {
+			let input = inputs[i];
+			if (input.validity.patternMismatch){
+				validation = false; //if input is wrong
+			}
+		}
+
+		// only focus if input is correct
+		if((nextInput) && (validition == true)){
+			nextInput.focus(); 
+		} else 
+		if (!nextInput) {
+			console.log("no input found at row",row,", col",col,"(",event.key,")");
+		} 
+	});
+</script>
